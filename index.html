@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Weather App</title>
+  <meta name="description" content="Simple Weather App using Open-Meteo (no API key). Demo for Git/GitHub collaboration." />
+
+  <!-- Link your CSS files (create these files in the same folder) -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="weather-theme.css" />
+
+  <!-- Optional: favicon -->
+  <link rel="icon" href="favicon.ico" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="app-title">Simple Weather App</h1>
+      <p class="subtitle">Quick weather info using Open-Meteo (no API key required)</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="search-section" aria-labelledby="search-heading">
+      <h2 id="search-heading" class="sr-only">Search city</h2>
+
+      <form id="city-form" class="city-form" role="search" aria-label="Search weather by city">
+        <label for="city-input" class="visually-hidden">Enter city name</label>
+        <input
+          id="city-input"
+          name="city"
+          type="text"
+          placeholder="Enter city (e.g. London)"
+          autocomplete="off"
+          required
+        />
+        <button type="submit">Get Weather</button>
+      </form>
+
+      <div id="status" class="status" aria-live="polite"></div>
+    </section>
+
+    <section id="weather-card" class="weather-card" hidden aria-labelledby="weather-heading">
+      <h2 id="weather-heading" class="weather-city">—</h2>
+
+      <div class="weather-main">
+        <div class="weather-icon" aria-hidden="true">☀️</div>
+        <div class="weather-values">
+          <p class="temp"><span id="temp-value">--</span>°C</p>
+          <p class="cond" id="condition">—</p>
+        </div>
+      </div>
+
+      <ul class="weather-details">
+        <li>Humidity: <span id="humidity">--</span>%</li>
+        <li>Wind Speed: <span id="wind">--</span> m/s</li>
+      </ul>
+    </section>
+
+    <section class="notes">
+      <h3>Notes</h3>
+      <ul>
+        <li>This demo uses an open geocoding & weather API in <code>script.js</code>.</li>
+        <li>No API key required — great for demos and classroom projects.</li>
+        <li>Place <code>styles.css</code>, <code>weather-theme.css</code> and <code>script.js</code> next to this file.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>&copy; <span id="year"></span> Simple Weather App • Demo for Git collaboration</small>
+    </div>
+  </footer>
+
+  <!-- Link your JS file (create script.js in the same folder) -->
+  <script src="script.js" defer></script>
+
+  <!-- Minimal inline script to set the year if JS doesn't handle it in script.js -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
